@@ -7,7 +7,7 @@ export default class Product extends Component {
                 <div>
                        <div className="col-lg-4 col-md-6 col-sm-12">
                         <div className="card text-start bg-secondary text-light mb-5">
-                            <img className="card-img" src={thumbnail} height='200px'/>
+                            <img className="card-img" src={thumbnail} alt={title} height='200px'/>
                             <div className="card-body">
                                 <h4 className="card-text">Name: {title}</h4>
                                 <p className="card-text">Brand: {brand}</p>

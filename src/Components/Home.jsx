@@ -82,6 +82,15 @@ export default class Home extends Component {
       }
     ]
     }
+    componentDidMount() {
+      const savedProducts = localStorage.getItem('products');
+      if (savedProducts) {
+        this.setState({ products: JSON.parse(savedProducts) });
+      }
+    }
+    componentDidUpdate() {
+      localStorage.setItem('products', JSON.stringify(this.state.products));
+    }
   increasePrice = (index)=>{
     let products = [...this.state.products]
     products[index].price +=100;
