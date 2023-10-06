@@ -4,7 +4,7 @@ export default class Product extends Component {
     render() {
         let { title, price, brand, thumbnail } = this.props.productDetails
         return (
-                <div>
+                
                        <div className="col-lg-4 col-md-6 col-sm-12">
                         <div className="card text-start bg-secondary text-light mb-5">
                             <img className="card-img" src={thumbnail} alt={title} height='200px'/>
@@ -16,7 +16,7 @@ export default class Product extends Component {
                                 <button className="btn btn-danger" onClick={() => this.props.deleteProduct(this.props.index)}>Delete product</button>
                             </div>
                             </div>
-                </div>
+                
             </div>
         )
     }

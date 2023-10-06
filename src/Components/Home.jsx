@@ -109,15 +109,17 @@ export default class Home extends Component {
 
   render() {
     return (
+      
       <div className="container mt-5">
         <div className="row">
         <button className="btn btn-success w-25 mb-3" onClick={this.addNewProduct}>Add Product</button>
-        </div>
+        </div> 
         <div className="row">
           {this.state.products.map((product,index) => 
             <Product key={index} productDetails={product} index = {index} increaseProductPrice={this.increasePrice} deleteProduct ={this.deleteProduct}/>
           )}
-        </div> 
+        </div>
+        
       </div>
     );
   }
