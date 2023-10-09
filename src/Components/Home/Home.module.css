@@ -1,0 +1,17 @@
+@import url(https://fonts.googleapis.com/css?family=Satisfy:regular);
+
+.content {
+  background-image: url("../../Images/bgImage.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-family: 'Satisfy', cursive;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}

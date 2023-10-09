@@ -1,0 +1,16 @@
+@import url(https://fonts.googleapis.com/css?family=Satisfy:regular);
+
+nav {
+  background-color: #2C0047;
+  font-family: 'Satisfy';
+  color: white;
+  justify-content: center;
+  display: flex;
+  padding: 10px 20px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: white;
+  margin-right: 20px;
+}
