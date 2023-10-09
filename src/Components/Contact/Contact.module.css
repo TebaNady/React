@@ -1,0 +1,15 @@
+@import url(https://fonts.googleapis.com/css?family=Satisfy:regular);
+
+.content {
+    background-image: url("../../Images/contact.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    text-align: center;
+    font-family: 'Satisfy', cursive;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}

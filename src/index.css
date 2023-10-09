@@ -1,0 +1,9 @@
+@import url(https://fonts.googleapis.com/css?family=Satisfy:regular) ;
+body{
+  margin: 0;
+  font-family: 'Satisfy';
+}
+
+code {
+  font-family: 'Satisfy'
+}

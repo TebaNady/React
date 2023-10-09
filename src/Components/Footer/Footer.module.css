@@ -1,0 +1,11 @@
+@import url(https://fonts.googleapis.com/css?family=Satisfy:regular);
+
+.content{
+  background-color: #2C0047;
+  text-align: center;
+  font-family: 'Satisfy', cursive;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+}
