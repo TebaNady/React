@@ -8,6 +8,7 @@ import Home from './Components/Home/Home'
 import Error from './Components/Error404/Error'
 const routes = createBrowserRouter([{
   path: "", element: <LayOut />, children: [
+    { index : true, element: <Login /> },
     { path: "login", element: <Login /> },
     { path: "register", element: <Register /> },
     { path: "user", element: <User /> },
