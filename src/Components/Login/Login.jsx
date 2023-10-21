@@ -1,19 +1,22 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useFormik } from 'formik'
 import * as Yup from 'yup' 
 import axios from 'axios'
+import { TokenContext } from '../../Context/token'
 
 export default function Login() {
   let navigate = useNavigate()
   const [isLoading, setIsLoading] = useState(false);
   const [apiError, setApiError] = useState();
+  let {setToken} = useContext(TokenContext)
   async function login(values) {
     setIsLoading(true)
     await axios.post(`https://sara7aiti.onrender.com/api/v1/user/signin`, values).then((data) => {
-      console.log(data.data);  
     if (data.data.message == "welcome") {
         setIsLoading(false)
+        localStorage.setItem("userToken",data.data.token)
+        setToken(data.data.token)
         navigate("/user")
       }
     }).catch((err) => {

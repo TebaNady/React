@@ -10,6 +10,9 @@ body {
 .nav-link {
   color: #fff !important;
 }
+footer{
+  background-color: #000;
+}
 
 .btn-default-outline {
   color: #000 !important;
