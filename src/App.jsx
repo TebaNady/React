@@ -11,6 +11,8 @@ import { useContext } from 'react';
 import { TokenContext } from './Context/token';
 import ProtectedRoute from './Components/ProtectedRoute/ProtectedRoute';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import { Provider } from 'react-redux';
+import store from './Redux/store';
 
 const queryClient = new QueryClient();
 
@@ -36,9 +38,11 @@ function App() {
 
   return (
     <>
+    <Provider store={store}>
       <QueryClientProvider client={queryClient}>
         <RouterProvider router={routes}></RouterProvider>
       </QueryClientProvider>
+      </Provider>
     </>
   );
 }

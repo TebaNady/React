@@ -8,12 +8,16 @@ import 'font-awesome/css/font-awesome.min.css';
 import '@popperjs/core'
 import './index.css';
 import TokenContextProvider from './Context/token';
+import { Provider } from 'react-redux';
+import store from './Redux/store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  <Provider store={store}>
   <TokenContextProvider>
     <App />
   </TokenContextProvider>
+  </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function

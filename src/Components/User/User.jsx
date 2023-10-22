@@ -1,41 +1,35 @@
-import React, { useState, useEffect } from 'react';
-import { useQuery } from 'react-query';
+import React, {  useEffect } from 'react';
 import img from '../../Images/avatar.png';
 import { Link } from 'react-router-dom';
 import jwtDecode from 'jwt-decode';
-
-const fetchMessages = async () => {
-  const token = localStorage.getItem("userToken");
-  const response = await fetch("https://sara7aiti.onrender.com/api/v1/message", {
-    headers: {
-      token : token
-    }
-  });
-
-  if (!response.ok) {
-    throw new Error('Failed to fetch messages');
-  }
-
-  const data = await response.json();
-  return data.allMessages;
-};
+import { getMsg } from '../../Redux/MessagesSlice';
+import { useSelector, useDispatch } from 'react-redux';
 
 export default function User() {
   const decodedToken = jwtDecode(localStorage.getItem("userToken"));
   const userID = decodedToken.id;
   const userName = decodedToken.name;
 
-  const { data: allMsg = [], status } = useQuery('messages', fetchMessages);
+  const dispatch = useDispatch();
+  const allMsg = useSelector((state) => state.messages.messages) || [];
+  const status = useSelector((state) => state.messages.status);
+  console.log("allMsg:", allMsg);
+  console.log("status:", status);
+  useEffect(() => {
+    dispatch(getMsg());
+  }, [dispatch]);
 
   return (
     <>
       <div className="container text-center py-5 my-5 text-center">
         <div className="card pt-5">
-          <a href="">
+          <a>
             <img src={img} className="avatar" alt="Avatar" />
           </a>
           <h3 className="py-2">Hi, {userName}</h3>
-          <Link data-bs-toggle="modal" data-bs-target="#exampleModal" className="btn btn-dark rounded-pill share"><i className="fa fa-share-alt" /> Share Profile</Link>
+          <Link data-bs-toggle="modal" data-bs-target="#exampleModal" className="btn btn-dark rounded-pill share">
+            <i className="fa fa-share-alt" /> Share Profile
+          </Link>
         </div>
       </div>
 
@@ -53,7 +47,7 @@ export default function User() {
                 <p>Error loading messages.</p>
               </div>
             </div>
-          ) : allMsg.length === 0 ? (
+          ) : !Array.isArray(allMsg) || allMsg.length === 0 ? (
             <div className="col-md-12">
               <div className="card py-5">
                 <p>You don't have any messages...</p>
@@ -81,7 +75,9 @@ export default function User() {
               {window.location.origin}/messages/{userID}
             </div>
             <div className="modal-footer">
-              <button type="button" className="btn btn-danger" data-bs-dismiss="modal">Close</button>
+              <button type="button" className="btn btn-danger" data-bs-dismiss="modal">
+                Close
+              </button>
             </div>
           </div>
         </div>
